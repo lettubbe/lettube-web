@@ -1,0 +1,709 @@
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease-out;
+  overflow: hidden;
+}
+
+.preloaderExit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloaderLogo {
+  animation: pulse 2s infinite ease-in-out;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+.preloaderLogoExit {
+  animation: none;
+  transform: rotate(45deg) scale(50);
+  opacity: 0;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.main {
+  min-height: 100vh;
+  background: #000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 40px;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 180vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.heroBackgroundText {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  width: 80vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.heroHeader {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 4;
+  animation: heroFadeIn 1.5s ease-out;
+}
+
+.heroHeaderLine1,
+.heroHeaderLine2,
+.heroHeaderLine3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.voiceText {
+  font-family: var(--font-carter-one);
+  color: #F7AD00;
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: 4;
+}
+
+.vibeText {
+  font-family: var(--font-carter-one);
+  color: #00D47B;
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: 4;
+}
+
+.spaceText {
+  font-family: var(--font-carter-one);
+  color: #7F06F8;
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: 4;
+}
+
+.heroContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+.heroImageWrapper {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: heroFadeIn 1.5s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroImage {
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.heroText {
+  position: absolute;
+  bottom: 2vh;
+  right: 1.5vw;
+  width: 90vw;
+  text-align: right;
+  font-size: 23px;
+  font-weight: 400;
+  color: #1a1a1a;
+  z-index: 3;
+}
+
+/* Section 2 - White Background */
+.sectionWhite {
+  position: relative;
+  min-height: 100vh;
+  background: #ffffff;
+  z-index: 30;
+  padding: 0 0 100px 50px;
+  margin-top: 0;
+  box-shadow: 0 -50px 100px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+}
+
+.sectionContent {
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  display: flex;
+  align-items: flex-start;
+}
+
+.sectionContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.textContent {
+  flex: 0 0 30%;
+  padding-right: 40px;
+  padding-left: 16px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.featureTitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+}
+
+.featureDescription {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  max-width: 500px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ctaButton {
+  padding: 14px 40px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+}
+
+.mockupShowcase {
+  margin-top: 80px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.showcasePhone {
+  width: 250px;
+  height: 500px;
+  background: #f0f0f0;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.showcasePhone:hover {
+  transform: translateY(-10px);
+}
+
+.imageContent {
+  flex: 0 0 70%;
+  height: 700px;
+  position: relative;
+  z-index: 15;
+  margin-bottom: -100px;
+}
+
+.showcaseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Section 3 - Black Background with Parallax */
+.sectionBlack {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  z-index: 10;
+  padding: 0;
+  margin-top: -300px;
+  box-shadow: 0 -50px 100px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  overflow: hidden;
+}
+
+.fullSectionImage {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.parallaxContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.parallaxContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallaxTitle {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 900;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.parallaxDescription {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.playerMockup {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 20px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: 0 30px 60px rgba(239, 68, 68, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.playerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Section 4 - Final Section */
+.sectionFinal {
+  position: relative;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+  z-index: 20;
+  padding: 100px 0 0 50px;
+  margin-top: -300px;
+  margin-bottom: -50;
+  box-shadow: 0 -50px 100px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  overflow: hidden;
+}
+
+.finalContent {
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+}
+
+.finalContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.finalTextContent {
+  flex: 1;
+  max-width: 35%;
+}
+
+.finalTitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.finalParagraph {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.finalSubtext {
+  font-size: 16px;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+.finalCtaButton {
+  padding: 14px 40px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.finalCtaButton:hover {
+  transform: translateY(-2px);
+}
+
+.finalImageContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40vw;
+}
+
+.finalImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.appIconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.appIcon {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.appIcon:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.appIcon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  /* Navigation */
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  /* Hero Section */
+  .hero {
+    height: 120vh;
+  }
+
+  .heroBackgroundText {
+    width: 90vw;
+  }
+
+  .heroImage {
+    width: auto;
+    height: 70vh;
+    object-fit: contain;
+  }
+
+  .heroText {
+    font-size: 18px;
+    bottom: 5vh;
+    right: 5vw;
+    width: 85vw;
+  }
+
+  .heroHeader {
+    top: 15px;
+    left: 20px;
+  }
+
+  .heroHeaderLine1,
+  .heroHeaderLine2,
+  .heroHeaderLine3 {
+    font-size: 24px;
+  }
+
+  /* Section 2 - White */
+  .sectionWhite {
+    padding: 60px 0 80px 20px;
+  }
+
+  .sectionContent {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .textContent {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .featureTitle {
+    font-size: 16px;
+    white-space: normal;
+    position: static;
+    width: auto;
+  }
+
+  .featureDescription {
+    font-size: 16px;
+    margin-top: 20px;
+    max-width: 50%;
+    -webkit-line-clamp: none;
+    display: block;
+  }
+
+  .imageContent {
+    flex: none;
+    width: 100%;
+    height: 80vh;
+    position: static;
+    margin-bottom: 0;
+    z-index: auto;
+  }
+
+  /* Section 3 - Black */
+  .sectionBlack {
+    margin-top: -280px;
+  }
+
+  /* Section 4 - Final */
+  .sectionFinal {
+    padding: 60px 0 0 20px;
+    margin-top: -60px;
+    min-height: 90vh;
+  }
+
+  .finalContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .finalTextContent {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .finalTitle {
+    font-size: 28px;
+    white-space: normal;
+  }
+
+  .finalParagraph {
+    -webkit-line-clamp: none;
+    display: block;
+  }
+
+  .finalSubtext {
+    white-space: normal;
+  }
+
+  .finalImageContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50vw;
+    height: auto;
+  }
+
+  .finalImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .heroImage {
+    margin-top: 100px;
+    width: auto;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  .heroText {
+    font-size: 16px;
+    bottom: 3vh;
+    right: 5vw;
+  }
+
+  .heroHeader {
+    top: 30px;
+    left: 15px;
+  }
+
+  .heroHeaderLine1,
+  .heroHeaderLine2,
+  .heroHeaderLine3 {
+    font-size: 20px;
+  }
+
+  .sectionWhite {
+    padding: 40px 0 40px 0px;
+  }
+
+  .sectionFinal {
+    padding: 40px 0 0 15px;
+  }
+
+  .featureTitle,
+  .finalTitle {
+    font-size: 16px;
+  }
+
+  .featureDescription,
+  .finalParagraph {
+    font-size: 14px;
+  }
+
+  .ctaButton,
+  .finalCtaButton {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+
+  .imageContent {
+    height: 85vh;
+  }
+
+  .finalImageContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80vw;
+    height: auto;
+  }
+}
+
+.mainHidden {
+  opacity: 0;
+  visibility: hidden;
+}
