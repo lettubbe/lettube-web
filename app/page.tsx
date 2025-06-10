@@ -213,7 +213,7 @@ export default function Home() {
           <div className={styles.finalImageContainer}>
             <Image
               src="/images/mockUp4.svg"
-              alt="Mockup 4"
+              alt="Mockup 5"
               width={400}
               height={600}
               className={styles.finalImage}
