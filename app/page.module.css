@@ -285,7 +285,7 @@
 
 .imageContent {
   flex: 0 0 70%;
-  height: 700px;
+  height: 100%;
   position: relative;
   z-index: 15;
   margin-bottom: -100px;
@@ -376,11 +376,11 @@
 /* Section 4 - Final Section */
 .sectionFinal {
   position: relative;
-  min-height: 80vh;
+  /* min-height: 80vh; */
   background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
   z-index: 20;
   padding: 100px 0 0 50px;
-  margin-top: -300px;
+  margin-top: -200px;
   margin-bottom: -50px;
   box-shadow: 0 -50px 100px rgba(0, 0, 0, 0.1);
   will-change: transform;
@@ -445,6 +445,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 99999;
 }
 
 .finalCtaButton:hover {
@@ -676,7 +677,7 @@
 
   .featureTitle,
   .finalTitle {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .featureDescription,
@@ -688,6 +689,7 @@
   .finalCtaButton {
     padding: 12px 30px;
     font-size: 16px;
+    z-index: 99999;
   }
 
   .imageContent {

@@ -10,10 +10,11 @@ export default function Home() {
   const heroContentRef = useRef<HTMLDivElement>(null)
   const sectionsRef = useRef<HTMLElement[]>([])
   const [isPreloading, setIsPreloading] = useState(true)
+  const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    // Don't initialize anything until preloader is done
-    if (isPreloading) return
+    // Don't initialize anything until content is ready to show
+    if (!showContent) return
 
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
@@ -105,7 +106,7 @@ export default function Home() {
       lenis.destroy()
       observer.disconnect()
     }
-  }, [isPreloading])
+  }, [showContent])
 
   const addToRefs = (el: HTMLElement | null, index: number) => {
     if (el) {
@@ -117,10 +118,14 @@ export default function Home() {
     setIsPreloading(false)
   }
 
+  const handleContentShow = () => {
+    setShowContent(true)
+  }
+
   return (
     <>
-      <Preloader onLoadingComplete={handleLoadingComplete} />
-      <main className={`${styles.main} ${isPreloading ? styles.mainHidden : ''}`}>
+      <Preloader onLoadingComplete={handleLoadingComplete} onContentShow={handleContentShow} />
+      <main className={`${styles.main} ${!showContent ? styles.mainHidden : ''}`}>
         {/* Hero */}
         <div className={styles.hero}>
           <Image

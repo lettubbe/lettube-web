@@ -6,9 +6,10 @@ import styles from './Preloader.module.css'
 
 interface PreloaderProps {
   onLoadingComplete?: () => void
+  onContentShow?: () => void
 }
 
-export default function Preloader({ onLoadingComplete }: PreloaderProps) {
+export default function Preloader({ onLoadingComplete, onContentShow }: PreloaderProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [isExiting, setIsExiting] = useState(false)
 
@@ -21,14 +22,20 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
       // Add a small delay for smoother transition
       setTimeout(() => {
         setIsExiting(true)
-        // Wait for exit animation to complete before removing preloader
+        
+        // Show content immediately when scaling starts
+        if (onContentShow) {
+          onContentShow()
+        }
+        
+        // Remove preloader after animation completes
         setTimeout(() => {
           setIsLoading(false)
           document.body.style.overflow = '' // Re-enable scrolling
           if (onLoadingComplete) {
             onLoadingComplete()
           }
-        }, 2500) // Slightly longer to ensure animation completes
+        }, 3500) // Match the animation duration
       }, 800) // Minimum display time
     }
 
@@ -43,7 +50,7 @@ export default function Preloader({ onLoadingComplete }: PreloaderProps) {
       window.removeEventListener('load', handleLoad)
       document.body.style.overflow = '' // Cleanup
     }
-  }, [onLoadingComplete])
+  }, [onLoadingComplete, onContentShow])
 
   if (!isLoading) return null
 

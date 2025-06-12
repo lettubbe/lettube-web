@@ -13,7 +13,7 @@
 }
 
 .preloaderExit {
-  /* Keep the preloader visible during exit animation */
+  animation: backgroundFadeOut 0.5s ease-out forwards;
 }
 
 .preloaderLogo {
@@ -23,7 +23,7 @@
 }
 
 .preloaderLogoExit {
-  animation: exitAnimation 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: exitAnimation 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes pulse {
@@ -37,13 +37,22 @@
   }
 }
 
+@keyframes backgroundFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes exitAnimation {
   0% {
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
   100% {
-    transform: scale(150) rotate(300deg);
+    transform: scale(600) rotate(300deg);
     opacity: 0;
   }
 }
@@ -61,7 +70,7 @@
       opacity: 1;
     }
     100% {
-      transform: scale(100) rotate(300deg);
+      transform: scale(600) rotate(300deg);
       opacity: 0;
     }
   }
@@ -79,7 +88,7 @@
       opacity: 1;
     }
     100% {
-      transform: scale(80) rotate(300deg);
+      transform: scale(600) rotate(300deg);
       opacity: 0;
     }
   }
