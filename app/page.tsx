@@ -36,7 +36,7 @@ export default function Home() {
         if (section) {
           const rect = section.getBoundingClientRect()
           const windowHeight = window.innerHeight
-          
+
           if (index === 0) {
             // White section; stays in place initially, then slides up when black section approaches
             const progress = Math.max(0, (windowHeight - rect.top) / windowHeight)
@@ -49,7 +49,7 @@ export default function Home() {
             // Black section; slides down from top to cover white section, then slides up to reveal final section
             const sectionHeight = section.offsetHeight
             const scrollProgress = (windowHeight - rect.top) / (windowHeight + sectionHeight)
-            
+
             if (scrollProgress < 0) {
               // Before section is visible
               section.style.transform = `translateY(0px)`
@@ -144,7 +144,7 @@ export default function Home() {
           <div className={styles.heroContent} ref={heroContentRef}>
             <div className={styles.heroImageWrapper}>
               <Image
-                src="/images/mockUp1.svg"
+                src="/images/mockUp1.png"
                 alt="Lettubbe app mockup"
                 width={1200}
                 height={800}
@@ -164,7 +164,7 @@ export default function Home() {
             <div className={styles.textContent}>
               <h2 className={styles.featureTitle}>Because watching should feel like hanging out.</h2>
               <p className={styles.featureDescription}>
-                It&apos;s not just another streaming app, it&apos;s a space to talk, react, and belong.
+                It&apos;s not just another streaming app, it&apos;s a safe space to talk & create, share dreams and build inspiring communities.
               </p>
               <button className={styles.ctaButton}>Try the beta app now</button>
             </div>
@@ -184,7 +184,7 @@ export default function Home() {
         {/* Section 3; Black Background */}
         <section className={styles.sectionBlack} ref={(el) => addToRefs(el, 1)}>
           <Image
-            src="/images/mockUp3.svg"
+            src="/images/mockUp3.png"
             alt="Mockup 3"
             width={1200}
             height={800}
@@ -198,14 +198,11 @@ export default function Home() {
             <div className={styles.finalTextContent}>
               <h2 className={styles.finalTitle}>It starts with a spark.</h2>
               <p className={styles.finalParagraph}>
-                A place between here and home,
-                Woven from wonder and intention,
-                Where presence matters more than polish,
-                And every soul has space to rest,
-                Still tender, still taking shape,
-                Held together by grace and grit.
+                Fuel your art, connect with an audience that craves your creativity. 
+                Join conversations that inspire.
+                Lettubbe - where artistry meets community.
               </p>
-              <p className={styles.finalSubtext}>You're already part of it.</p>
+              {/* <p className={styles.finalSubtext}>You're already part of it.</p> */}
               <button className={styles.finalCtaButton}>Try the beta app now</button>
             </div>
           </div>
