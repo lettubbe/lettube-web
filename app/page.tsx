@@ -12,6 +12,17 @@ export default function Home() {
   const [isPreloading, setIsPreloading] = useState(true)
   const [showContent, setShowContent] = useState(false)
 
+  const handleDownloadApp = () => {
+    // Replace with your actual S3 bucket URL
+    const downloadUrl = 'https://lettube-apks.s3.eu-north-1.amazonaws.com/lettube-v1-production-13-06-2025.apk'
+    const link = document.createElement('a')
+    link.href = downloadUrl
+    link.download = 'lettubbe-app.apk'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   useEffect(() => {
     // Don't initialize anything until content is ready to show
     if (!showContent) return
@@ -171,7 +182,7 @@ export default function Home() {
               <p className={styles.featureDescription}>
                 It&apos;s not just another streaming app, it&apos;s a safe space to talk & create, share dreams and build inspiring communities.
               </p>
-              <button className={styles.ctaButton}>Try the beta app now</button>
+              <button className={styles.ctaButton} onClick={handleDownloadApp}>Download Beta App</button>
             </div>
 
             <div className={styles.imageContent}>
@@ -208,7 +219,7 @@ export default function Home() {
                 Lettubbe - where artistry meets community.
               </p>
               {/* <p className={styles.finalSubtext}>You're already part of it.</p> */}
-              <button className={styles.finalCtaButton}>Try the beta app now</button>
+              <button className={styles.finalCtaButton} onClick={handleDownloadApp}>Download Beta App</button>
             </div>
           </div>
 
