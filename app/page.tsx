@@ -14,7 +14,7 @@ export default function Home() {
 
   const handleDownloadApp = () => {
     // Replace with your actual S3 bucket URL
-    const downloadUrl = 'https://lettube-apks.s3.eu-north-1.amazonaws.com/lettube-v1-production-13-06-2025.apk'
+    const downloadUrl = 'https://lettube-apks.s3.eu-north-1.amazonaws.com/07-14-25/lettubbe.apk'
     const link = document.createElement('a')
     link.href = downloadUrl
     link.download = 'lettubbe-app.apk'
@@ -138,41 +138,41 @@ export default function Home() {
       <Preloader onLoadingComplete={handleLoadingComplete} onContentShow={handleContentShow} />
       <main className={`${styles.main} ${!showContent ? styles.mainHidden : ''}`}>
         {/* Hero */}
-        <div className={styles.hero}>
+        <header className={styles.hero}>
           <Image
             src="/images/lettubbe.svg"
-            alt="Lettubbe"
+            alt="Lettubbe logo background text"
             width={1440}
             height={960}
             className={styles.heroBackgroundText}
           />
-          <div className={styles.heroHeader}>
-            <div className={styles.heroHeaderLine1}>
+          <h1 className={styles.heroHeader}>
+            <span className={styles.heroHeaderLine1}>
               Your <span className={styles.voiceText}>voiCe</span>
-            </div>
-            <div className={styles.heroHeaderLine2}>
+            </span>
+            <span className={styles.heroHeaderLine2}>
               Your <span className={styles.vibeText}>vibE</span>
-            </div>
-            <div className={styles.heroHeaderLine3}>
+            </span>
+            <span className={styles.heroHeaderLine3}>
               Your <span className={styles.spaceText}>space</span>
-            </div>
-          </div>
+            </span>
+          </h1>
           <div className={styles.heroContent} ref={heroContentRef}>
             <div className={styles.heroImageWrapper}>
               <Image
                 src="/images/mockUp1.png"
-                alt="Lettubbe app mockup"
+                alt="Lettubbe mobile app interface showing video streaming and community features"
                 width={1200}
                 height={800}
                 priority
                 className={styles.heroImage}
               />
             </div>
-            <div className={styles.heroText}>
+            <p className={styles.heroText}>
               Built for creators. Ruled by viewers.
-            </div>
+            </p>
           </div>
-        </div>
+        </header>
 
         {/* Section 2; White Background */}
         <section className={styles.sectionWhite} ref={(el) => addToRefs(el, 0)}>
@@ -182,13 +182,13 @@ export default function Home() {
               <p className={styles.featureDescription}>
                 It&apos;s not just another streaming app, it&apos;s a safe space to talk & create, share dreams and build inspiring communities.
               </p>
-              <button className={styles.ctaButton} onClick={handleDownloadApp}>Download Beta App</button>
+              <button className={styles.ctaButton} onClick={handleDownloadApp}>Download The Beta App</button>
             </div>
 
             <div className={styles.imageContent}>
               <Image
                 src="/images/mockUp2.svg"
-                alt="Feed View"
+                alt="Lettubbe app feed view displaying creator content and community interactions"
                 width={300}
                 height={600}
                 className={styles.showcaseImage}
@@ -201,7 +201,7 @@ export default function Home() {
         <section className={styles.sectionBlack} ref={(el) => addToRefs(el, 1)}>
           <Image
             src="/images/mockUp3.png"
-            alt="Mockup 3"
+            alt="Lettubbe app video player interface with live chat and viewer engagement features"
             width={1200}
             height={800}
             className={styles.fullSectionImage}
@@ -211,7 +211,7 @@ export default function Home() {
         {/* Section 4 - Final Section */}
         <section className={styles.sectionFinal} ref={(el) => addToRefs(el, 2)}>
           <div className={styles.finalContent}>
-            <div className={styles.finalTextContent}>
+            <article className={styles.finalTextContent}>
               <h2 className={styles.finalTitle}>It starts with a spark.</h2>
               <p className={styles.finalParagraph}>
                 Fuel your art, connect with an audience that craves your creativity. 
@@ -219,19 +219,19 @@ export default function Home() {
                 Lettubbe - where artistry meets community.
               </p>
               {/* <p className={styles.finalSubtext}>You're already part of it.</p> */}
-              <button className={styles.finalCtaButton} onClick={handleDownloadApp}>Download Beta App</button>
-            </div>
+              <button className={styles.finalCtaButton} onClick={handleDownloadApp}>Download The Beta App</button>
+            </article>
           </div>
 
-          <div className={styles.finalImageContainer}>
+          <aside className={styles.finalImageContainer}>
             <Image
               src="/images/mockUp4.svg"
-              alt="Mockup 5"
+              alt="Lettubbe app profile and creation tools interface for content creators"
               width={400}
               height={600}
               className={styles.finalImage}
             />
-          </div>
+          </aside>
         </section>
       </main>
     </>
