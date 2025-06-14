@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code-goes-here",
+    google: "google-site-verification-code-gos-here",
   },
 };
 
