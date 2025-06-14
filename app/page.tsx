@@ -13,7 +13,7 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false)
 
   const handleDownloadApp = () => {
-    // Replace with your actual S3 bucket URL
+    
     const downloadUrl = 'https://lettube-apks.s3.eu-north-1.amazonaws.com/07-14-25/lettubbe.apk'
     const link = document.createElement('a')
     link.href = downloadUrl
