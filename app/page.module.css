@@ -522,9 +522,9 @@
   }
 
   .heroImage {
-    width: auto;
-    height: 70vh;
-    object-fit: contain;
+    width: 200vw;
+    height: 100vh;
+    object-fit: cover;
   }
 
   .heroText {
